@@ -9,7 +9,10 @@ const LoadedContent = ({ searchUrl }) => {
   useEffect(() => {
     fetch(`https://get-images-server.vercel.app/fetchData?url=${searchUrl}`)
       .then((res) => res.json())
-      .then((data) => setImageList(data));
+      .then((data) => {
+        setImageList(data);
+        console.log(data);
+      });
   }, []);
   const handleSelectAllCheckState = () => {
     setSelectAllCheckState((prev) => {

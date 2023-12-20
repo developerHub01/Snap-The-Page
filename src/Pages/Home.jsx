@@ -4,7 +4,7 @@ import SearchBox from "../Components/SearchBox";
 import LoadedContent from "../Components/LoadedContent";
 
 const Home = () => {
-  const [searchUrl, setSearchUrl] = useState("codeforces.com");
+  const [searchUrl, setSearchUrl] = useState("");
   return (
     <section className="w-full bg-primaryColor flex-grow">
       <Container>
