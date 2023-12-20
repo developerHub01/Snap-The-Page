@@ -13,6 +13,9 @@
   .transitionCommon {
     @apply transition-all duration-100 ease-in-out;
   }
+  .divider {
+    @apply w-full h-1 bg-primaryColor-500 rounded-full;
+  }
 }
 
 ::-webkit-scrollbar {

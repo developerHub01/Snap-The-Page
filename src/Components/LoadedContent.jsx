@@ -3,13 +3,14 @@ import SelectAll from "./SelectAll";
 import ImageList from "./ImageList";
 import JSZip from "jszip";
 import { LoadingContext } from "../CustomProvider/LoadingProvider";
+import { serverLink } from "../Constant/Constant";
 
 const LoadedContent = ({ searchUrl }) => {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [imageList, setImageList] = useState([]);
   const [selectAllCheckState, setSelectAllCheckState] = useState(true);
   useEffect(() => {
-    fetch(`https://get-images-server.vercel.app/fetchData?url=${searchUrl}`)
+    fetch(`${serverLink}/fetchData?url=${searchUrl}`)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading((prev) => false);
@@ -61,7 +62,7 @@ const LoadedContent = ({ searchUrl }) => {
 
   return (
     <>
-      {imageList.length && (
+      {Boolean(imageList.length) && (
         <div className="w-full py-14 flex flex-col gap-4 justify-center items-center">
           <SelectAll
             selectAllCheckState={selectAllCheckState}

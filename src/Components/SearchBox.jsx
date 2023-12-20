@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import validUrl from "valid-url";
 
 const SearchBox = ({ searchUrl, setSearchUrl }) => {
   const [searchedTitle, setSearchedTitle] = useState("Snap The Page");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!searchUrl) return setSearchedTitle((prev) => "Snap The Page");
+    if (!searchUrl || validUrl(searchUrl))
+      return setSearchedTitle((prev) => "Snap The Page");
 
-    // let title = searchUrl.split(".");
     let title = "";
     if (searchUrl.includes("https")) {
       title = searchUrl.split("https://")[1];
@@ -24,7 +25,7 @@ const SearchBox = ({ searchUrl, setSearchUrl }) => {
   return (
     <div className="w-full py-14 flex flex-col gap-5">
       <div className="">
-        <h2 className="text-secondaryColor text-center text-2xl font-bold border-b-4 border-secondaryColor flex w-fit mx-auto pb-2 capitalize">
+        <h2 className="text-secondaryColor text-center text-3xl md:text-4xl font-bold border-b-4 border-secondaryColor flex w-fit mx-auto pb-2 capitalize">
           {searchedTitle}
         </h2>
       </div>

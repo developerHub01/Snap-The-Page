@@ -10,7 +10,7 @@ export default {
         primaryColor: "#00111a",
         secondaryColor: "#ec0868",
         "primaryColor-500": "#003652",
-        lightColor: "#495057",
+        lightColor: "#ced4da",
         whiteColor: "#ffffff",
       },
       fontFamily: {
