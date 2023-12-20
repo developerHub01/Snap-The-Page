@@ -5,7 +5,6 @@ const ImageList = ({
   setImageList,
   handleEachImageSelectionState,
 }) => {
-  console.log(imageList);
   const handleImageCheck = (key) => {
     const list = imageList;
     list[key].state = !list[key].state;

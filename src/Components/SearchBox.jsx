@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import validUrl from "valid-url";
+import React, { useContext, useState } from "react";
+import { LoadingContext } from "../CustomProvider/LoadingProvider";
 
 const SearchBox = ({ searchUrl, setSearchUrl }) => {
   const [searchedTitle, setSearchedTitle] = useState("Snap The Page");
+  const { setIsLoading } = useContext(LoadingContext);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!searchUrl || validUrl(searchUrl))
-      return setSearchedTitle((prev) => "Snap The Page");
+    setIsLoading((prev) => true);
+    if (!searchUrl) return setSearchedTitle((prev) => "Snap The Page");
 
     let title = "";
     if (searchUrl.includes("https")) {
@@ -15,6 +16,7 @@ const SearchBox = ({ searchUrl, setSearchUrl }) => {
       title = searchUrl.split("http://")[1];
     }
     title = title.split(".")[0];
+    console.log(title);
     setSearchedTitle((prev) => title || "Snap The Page");
   };
   const handleInputChange = (e) => {
