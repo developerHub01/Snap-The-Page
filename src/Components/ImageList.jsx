@@ -16,7 +16,7 @@ const ImageList = ({
         {imageList.map(({ url, state }, i) => (
           <div
             key={i}
-            className={`w-full h-full relative p-3 rounded-md shadow-2xl bg-primaryColor hover:bg-secondaryColor transitionCommon cursor-pointer border-4 ${
+            className={`w-full h-full min-h-28 relative p-3 rounded-md shadow-2xl bg-primaryColor hover:bg-secondaryColor transitionCommon cursor-pointer border-4 ${
               state ? "border-secondaryColor" : "border-primaryColor-500"
             }`}
           >

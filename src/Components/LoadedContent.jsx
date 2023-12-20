@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SelectAll from "./SelectAll";
 import ImageList from "./ImageList";
 import JSZip from "jszip";
+import { LoadingContext } from "../CustomProvider/LoadingProvider";
 
 const LoadedContent = ({ searchUrl }) => {
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [imageList, setImageList] = useState([]);
   const [selectAllCheckState, setSelectAllCheckState] = useState(true);
   useEffect(() => {
     fetch(`https://get-images-server.vercel.app/fetchData?url=${searchUrl}`)
       .then((res) => res.json())
       .then((data) => {
-        setImageList(data);
-        console.log(data);
+        setIsLoading((prev) => false);
+        setImageList((prev) =>
+          data.map((item) => ({ url: item, state: true }))
+        );
+      })
+      .catch((error) => {
+        setIsLoading((prev) => false);
       });
-  }, []);
+  }, [isLoading]);
   const handleSelectAllCheckState = () => {
     setSelectAllCheckState((prev) => {
       setImageList((prev) =>
