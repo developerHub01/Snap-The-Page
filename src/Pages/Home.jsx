@@ -6,7 +6,7 @@ import LoadedContent from "../Components/LoadedContent";
 const Home = () => {
   const [searchUrl, setSearchUrl] = useState("");
   return (
-    <section className="w-full bg-primaryColor flex-grow">
+    <section className="w-full bg-primaryColor flex-grow flex justify-center items-center">
       <Container>
         <SearchBox searchUrl={searchUrl} setSearchUrl={setSearchUrl} />
         {searchUrl && <LoadedContent searchUrl={searchUrl} />}
