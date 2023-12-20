@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input1 {
+    @apply w-full px-4 py-2 bg-primaryColor text-whiteColor active:bg-primaryColor-500 hover:bg-primaryColor-500 focus:bg-primaryColor-500 transition-all duration-75 ease-in-out;
+  }
+  .button1 {
+    @apply py-3 px-4 bg-secondaryColor text-whiteColor capitalize text-center cursor-pointer;
+  }
+  .transitionCommon {
+    @apply transition-all duration-100 ease-in-out;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 60px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(236, 8, 104);
+  border-radius: 60px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(236, 8, 104);
+  border-radius: 60px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(236, 8, 104);
+}
