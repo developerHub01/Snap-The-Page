@@ -16,7 +16,6 @@ const SearchBox = ({ searchUrl, setSearchUrl }) => {
       title = searchUrl.split("http://")[1];
     }
     title = title.split(".")[0];
-    console.log(title);
     setSearchedTitle((prev) => title || "Snap The Page");
   };
   const handleInputChange = (e) => {

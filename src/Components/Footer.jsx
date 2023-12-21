@@ -79,7 +79,7 @@ const Footer = () => {
           <div className="w-full">
             <p className="text-center text-lightColor">
               All &copy;right is reserved to
-              <Link to={githubLink} className="text-secondaryColor underline">
+              <Link to={githubLink} className="text-secondaryColor underline pl-2">
                 Shakil
               </Link>
             </p>
