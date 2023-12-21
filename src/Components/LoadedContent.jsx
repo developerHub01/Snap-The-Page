@@ -66,13 +66,14 @@ const LoadedContent = ({ searchUrl }) => {
   const handleDownload = async () => {
     const zip = new JSZip();
     let hostTitle = "";
-    if (searchUrl.includes("https")) {
-      hostTitle = searchUrl.split("https://")[1];
-    } else {
-      hostTitle = searchUrl.split("http://")[1];
-    }
+    if (searchUrl.includes("https")) hostTitle = searchUrl.split("https://")[1];
+    else hostTitle = searchUrl.split("http://")[1];
+
+    if (hostTitle.includes("www")) hostTitle = hostTitle.split(".")[1];
+    else hostTitle = hostTitle.split(".")[0];
     hostTitle = hostTitle.split(".")[0];
 
+    setIsLoading((prev) => true);
     for (let i in imageList) {
       if (imageList[i].state) {
         try {
@@ -88,6 +89,7 @@ const LoadedContent = ({ searchUrl }) => {
     }
 
     zip.generateAsync({ type: "blob" }).then((content) => {
+      setIsLoading((prev) => false);
       const a = document.createElement("a");
       const url = URL.createObjectURL(content);
       a.href = url;

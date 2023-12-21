@@ -13,13 +13,13 @@ const Footer = () => {
     <section className="bg-primaryColor py-5 border-t-4 border-secondaryColor">
       <Container>
         <div className="w-full flex justify-center items-center gap-5 flex-col select-none">
-          <Link to="/" className="w-40">
+          <Link to="/" className="w-20 md:w-40">
             <img src={logo} alt="" className="w-full" />
           </Link>
           <span className="divider"></span>
           <div className="w-full flex flex-col md:flex-row sm:flex-row justify-between items-center md:items-start gap-4">
             <div className="flex flex-col justify-center items-center md:items-start gap-2">
-              <h3 className="text-secondaryColor text-2xl font-medium pb-2">
+              <h3 className="text-secondaryColor text-center md:text-left text-xl sm:text-2xl font-medium pb-2">
                 Get Our Extension
               </h3>
               <ul className="flex justify-start items-center gap-2">
@@ -44,7 +44,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex flex-col justify-center items-center md:items-end gap-2">
-              <h3 className="text-secondaryColor text-2xl font-medium pb-2">
+              <h3 className="text-secondaryColor text-center md:text-right text-xl sm:text-2xl font-medium pb-2">
                 Developed By
                 <Link
                   to={githubLink}
@@ -79,7 +79,10 @@ const Footer = () => {
           <div className="w-full">
             <p className="text-center text-lightColor">
               All &copy;right is reserved to
-              <Link to={githubLink} className="text-secondaryColor underline pl-2">
+              <Link
+                to={githubLink}
+                className="text-secondaryColor underline pl-2"
+              >
                 Shakil
               </Link>
             </p>
