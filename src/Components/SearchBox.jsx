@@ -15,7 +15,11 @@ const SearchBox = ({ searchUrl, setSearchUrl }) => {
     } else {
       title = searchUrl.split("http://")[1];
     }
-    title = title.split(".")[0];
+    if (title.includes("www")) {
+      title = title.split(".")[1];
+    } else {
+      title = title.split(".")[0];
+    }
     setSearchedTitle((prev) => title || "Snap The Page");
   };
   const handleInputChange = (e) => {
