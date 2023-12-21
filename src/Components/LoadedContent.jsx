@@ -41,7 +41,7 @@ const LoadedContent = ({ searchUrl }) => {
       const img = new Image();
       img.crossOrigin = "anonymous";
 
-      img.onload = function () {
+      img.onload = () => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
 
@@ -50,12 +50,12 @@ const LoadedContent = ({ searchUrl }) => {
         ctx.drawImage(img, 0, 0);
 
         // Convert canvas to blob
-        canvas.toBlob(function (blob) {
+        canvas.toBlob((blob) => {
           resolve(blob);
         }, "image/png");
       };
 
-      img.onerror = function (error) {
+      img.onerror = (error) => {
         reject(error);
       };
 
