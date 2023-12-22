@@ -113,7 +113,7 @@ const LoadedContent = ({ searchUrl }) => {
             handleEachImageSelectionState={handleEachImageSelectionState}
           />
           <button
-            className="button1 rounded-md mx-auto min-w-40 w-[400px]"
+            className="button1 rounded-md mx-auto max-w-[400px] w-full"
             onClick={handleDownload}
           >
             Download
